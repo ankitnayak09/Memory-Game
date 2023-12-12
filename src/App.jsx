@@ -38,7 +38,7 @@ function App() {
 			});
 		} else {
 		}
-		resetChoices();
+		setTimeout(() => resetChoices(), 1000);
 	};
 
 	// reset choices & increase turn
@@ -64,6 +64,9 @@ function App() {
 						card={card}
 						key={card.id}
 						handleChoice={handleChoice}
+						flipped={
+							card === choice1 || card === choice2 || card.matched
+						}
 					/>
 				))}
 			</div>
