@@ -28,6 +28,7 @@ function App() {
 
 	// Check for Card Matching
 	const checkForMatch = (card1, card2) => {
+		setDisabled(true);
 		if (card1.src === card2.src) {
 			setCards((prev) => {
 				return prev.map((card) => {
@@ -52,7 +53,6 @@ function App() {
 	};
 
 	useEffect(() => {
-		setDisabled(true);
 		if (!choice1 || !choice2) return;
 		checkForMatch(choice1, choice2);
 	}, [choice2]);
