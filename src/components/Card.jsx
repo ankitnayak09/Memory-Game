@@ -1,6 +1,9 @@
 import "./Card.css";
 
-const Card = ({ card }) => {
+const Card = ({ card, handleChoice }) => {
+	const handleClick = () => {
+		handleChoice(card);
+	};
 	return (
 		<div className="card">
 			<div>
@@ -9,6 +12,7 @@ const Card = ({ card }) => {
 					className="back"
 					src="/assets/img/cover.png"
 					alt="card back"
+					onClick={handleClick}
 				/>
 			</div>
 		</div>
