@@ -17,6 +17,8 @@ function App() {
 			.sort(() => Math.random() - 0.5)
 			.map((card) => ({ ...card, id: Math.random(), matched: false }));
 
+		setChoice1(null);
+		setChoice2(null);
 		setCards(shuffledCards);
 		setTurns(0);
 	};
@@ -57,6 +59,10 @@ function App() {
 		checkForMatch(choice1, choice2);
 	}, [choice2]);
 
+	useEffect(() => {
+		shuffleCards();
+	}, []);
+
 	console.table(cards);
 	return (
 		<div className="App">
@@ -75,6 +81,7 @@ function App() {
 					/>
 				))}
 			</div>
+			<p>Turns : {turns}</p>
 		</div>
 	);
 }
